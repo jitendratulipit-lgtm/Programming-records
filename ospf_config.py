@@ -1,3 +1,4 @@
+"""OSPF Configuration Script"""
 from netmiko import ConnectHandler
 router_config_map = {
     "192.168.1.25": "R1_ospf.txt",
