@@ -1,0 +1,35 @@
+name: Network Automation Workflow
+
+on:
+  push:
+    branches:
+      - jit-dev
+
+jobs:
+  ospf_bgp_automation:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # Step 3: Install dependencies
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Run OSPF automation script
+      - name: Run OSPF Config Script
+        run: python scripts/ospf_config.py
+
+      # Step 5: Run BGP automation script
+      - name: Run BGP Config Script
+        run: python scripts/BGPconfig.py
