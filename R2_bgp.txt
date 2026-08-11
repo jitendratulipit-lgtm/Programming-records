@@ -1,0 +1,13 @@
+interface fastethernet 0/1
+no shut
+ip address 16.16.16.2 255.255.255.252
+exit
+
+router bgp 65530
+neighbor 16.16.16.1 remote-as 65520
+network 172.16.10.0 mask 255.255.255.240
+
+exit
+exit
+
+wr
