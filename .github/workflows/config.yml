@@ -25,6 +25,12 @@ jobs:
       #   run: |
       #     python -m pip install --upgrade pip
       #     pip install -r requirements.txt
+      # Step 3: Connectivity test
+      - name: Test connectivity to router
+        run: |
+          ping 192.168.1.25 -n 4
+          # On Windows runner, use Test-NetConnection for port check
+          powershell -Command "Test-NetConnection 192.168.1.25 -Port 22"
 
       # Step 4: Run OSPF automation script
       - name: Run OSPF Config Script
