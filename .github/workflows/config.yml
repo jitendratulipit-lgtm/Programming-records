@@ -28,8 +28,8 @@ jobs:
 
       # Step 4: Run OSPF automation script
       - name: Run OSPF Config Script
-        run: python scripts/ospf_config.py
+        run: python ospf_config.py
 
       # Step 5: Run BGP automation script
       - name: Run BGP Config Script
-        run: python scripts/BGPconfig.py
+        run: python BGPconfig.py
