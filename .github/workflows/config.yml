@@ -7,7 +7,7 @@ on:
 
 jobs:
   ospf_bgp_automation:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       # Step 1: Checkout repository
