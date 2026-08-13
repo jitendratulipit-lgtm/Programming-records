@@ -1,0 +1,8 @@
+router ospf 1
+router-id 1.1.1.1
+network 10.0.0.0 0.0.0.255 area 0
+exit
+interface fastEthernet 0/0
+ip ospf network point-to-point
+ip ospf 1 area 0
+exit
