@@ -14,12 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Connectivity test
-      - name: Test connectivity to router
-        shell: powershell
-        run: |
-          powershell -Command "Test-NetConnection 192.168.1.25 -Port 22"
-
       # Step 3: Run OSPF automation script
       - name: Run OSPF Config Script
         shell: powershell
