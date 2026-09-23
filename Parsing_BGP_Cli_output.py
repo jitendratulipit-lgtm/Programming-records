@@ -18,11 +18,17 @@ with open("Device_List_routers.txt") as DEVICE_LIST:
         }
         try:
             connect=ConnectHandler(**RTR)
-            output=connect.send_command("show ip route bgp")
-            filename = os.path.join(Base_BGP_logs, f"{IP.strip()}_bgp_logs.txt")
-            with open(filename, "w") as logs:
-                logs.write(output)
-            print(f"BGP Logs from {IP.strip()} saved to {filename}")
+            output=connect.send_command("show ip bgp summary", use_textfsm=True)
+            for i in output:
+                if i['state_or_prefixes_received']!='Idle':
+                    output=connect.send_command("show ip route bgp")
+                    filename = os.path.join(Base_BGP_logs, f"{IP.strip()}_bgp_logs.txt")
+                    with open(filename, "w") as logs:
+                        logs.write(output)
+                    print(f"BGP Logs from {IP.strip()} saved to {filename}")
+                else:
+                    print(f"BGP neighborship is in {i['state_or_prefixes_received']}")
+            
 
             connect.disconnect()
 
