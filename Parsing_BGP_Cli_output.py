@@ -1,7 +1,5 @@
 from netmiko import ConnectHandler
-import datetime
 import os
-import time
 from ttp import ttp
 import json
 
