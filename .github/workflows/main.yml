@@ -1,8 +1,8 @@
-name: OSPF & BGP Automation
+name: BGP route consistency check Automation
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "Jit-dev" ]
   workflow_dispatch:   # allows manual trigger
 
 jobs:
@@ -18,19 +18,11 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run OSPF script
-        run: python ospf_config.py
-
-      - name: Run BGP script
-        run: python bgp_config.py
+      - name: BGP cli output parsing
+        run: Parsing_BGP_Cli_output.py
 
       - name: Archive logs
         uses: actions/upload-artifact@v3
         with:
-          name: bgp-ospf-logs
+          name: BGP_CLI_parsing logs
           path: BGP_Logs/
