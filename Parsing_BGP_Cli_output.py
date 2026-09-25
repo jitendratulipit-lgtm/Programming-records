@@ -75,5 +75,4 @@ for prefix in r1_routes:
         if r1_routes[prefix]['metric'] == r2_routes[prefix]['metric']:
             print(f"- {prefix}: ✅ Metric consistent ({r1_routes[prefix]['metric']})")
         else:
-            print(f"- {prefix}: ❌ Metric mismatch (R1={r1_routes[prefix]['metric']}, R2={r2_routes[prefix]['metric']})")          
-        
+            print(f"- {prefix}: ❌ Metric mismatch (R1={r1_routes[prefix]['metric']}, R2={r2_routes[prefix]['metric']})")
