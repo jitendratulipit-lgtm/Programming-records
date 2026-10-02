@@ -3,7 +3,7 @@ name: Network Automation Workflow
 on:
   push:
     branches:
-      - Jit-dev
+      - jit-dev
 
 jobs:
   ospf_bgp_automation:
