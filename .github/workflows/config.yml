@@ -16,10 +16,8 @@ jobs:
 
       # Step 3: Run OSPF automation script
       - name: Run OSPF Config Script
-        shell: powershell
-        run: python .\ospf_config.py
+        run: python ./ospf_config.py
 
       # Step 4: Run BGP automation script
       - name: Run BGP Config Script
-        shell: powershell
-        run: python .\BGPconfig.py
+        run: python ./BGPconfig.py
